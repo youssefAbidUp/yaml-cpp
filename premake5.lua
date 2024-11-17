@@ -1,8 +1,8 @@
 project "yaml-cpp"
-    kind "staticlib"
+    kind "StaticLib"
     language "C++"
     cppdialect "C++20"
-    staticruntime "On"
+    staticruntime "on"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
@@ -17,6 +17,11 @@ project "yaml-cpp"
     includedirs
     {
         "include"
+    }
+
+    defines
+    {
+        "YAML_CPP_STATIC_DEFINE"
     }
 
     filter "system:windows"
